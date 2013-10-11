@@ -5,7 +5,7 @@ public class Test1 {
 	public static void main(String[] args) {
 	
 
-	System.out.println("alles wieder geloescht");
+	System.out.println("diese Zeile wurde ueberschrieben");
 	}
 
 }
