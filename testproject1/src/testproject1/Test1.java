@@ -6,7 +6,8 @@ public class Test1 {
 	
 		
 		//neue Zeile 
-		System.out.println("2. testzeile hinzugef�gt");
+		System.out.println("2. testzeile hinzugefuegt");
+		System.out.println("neue zeile nicht auf server");
 	}
 
 }
