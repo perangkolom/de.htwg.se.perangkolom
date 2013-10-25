@@ -11,7 +11,7 @@ public class CellTest {
 		
 		assertEquals(8, new Cell(8, 0, 0));
 	}
-
+ 
 	@Test
 	public void testGetPositionX() {
 		assertEquals(5, new Cell(5, 0, 0).getPositionX());
