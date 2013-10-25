@@ -24,6 +24,6 @@ public class Border {
 	public void setOuterBorder(boolean outerBorder) {
 		this.outerBorder = outerBorder;
 	}
-
+ 
 	
 }
