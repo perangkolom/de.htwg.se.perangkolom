@@ -1,12 +1,10 @@
 package game_StructureElements;
 
 public class Border {
-
 	
 	private boolean borderFilled;
 	private boolean outerBorder;
-	
-	
+		
 	public Border(boolean borderFilled, boolean outerBorder) {
 		this.borderFilled = borderFilled;
 		this.outerBorder = outerBorder;
