@@ -8,7 +8,8 @@ public class BorderTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		Border LeftBorder = new Border(true, true);
+		assertNotNull(LeftBorder);
 	}
 
 }

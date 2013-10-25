@@ -27,7 +27,7 @@ public class CellTest {
 
 	@Test
 	public void testIsCellFilled() {
-		fail("Not yet implemented");
+		assertFalse(new Cell(5, 7, 0).isCellFilled());
 	}
 
 	@Test
