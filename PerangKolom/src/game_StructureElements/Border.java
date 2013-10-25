@@ -13,7 +13,7 @@ public class Border {
 	}
 	
 	public boolean isBorderFilled() {
-		return borderFilled;
+		return borderFilled; 
 	}
 	public void setBorderFilled(boolean borderFilled) {
 		this.borderFilled = borderFilled;
