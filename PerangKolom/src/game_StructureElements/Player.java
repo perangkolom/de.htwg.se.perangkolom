@@ -19,5 +19,4 @@ public class Player {
 		return numberOfPlayers;
 	}
 
-	//Hallo dgfdsfdsfadsf
 }
