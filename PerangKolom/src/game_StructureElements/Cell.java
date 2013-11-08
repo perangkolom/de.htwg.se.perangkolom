@@ -3,14 +3,13 @@ package game_StructureElements;
 public class Cell {
 	private final int positionX;
 	private final int positionY;
-	private boolean cellFilled;
 	private final int cellValue;
+	private boolean cellFilled;
 	private String cellOwner;
 	private Border cellBorder_top;
 	private Border cellBorder_bottom;
 	private Border cellBorder_left;
 	private Border cellBorder_right;
-	
 	
 	public Cell(final int positionX, final int positionY, final int cellValue) {
 		this.positionX = positionX;
