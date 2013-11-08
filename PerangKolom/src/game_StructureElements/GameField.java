@@ -8,6 +8,7 @@ public class GameField {
 	private static boolean gameFieldAlreadyCreated = false;
 	
 	public static boolean testVariabletoBeDeleted = true;
+	public static boolean testVariabletoBeDeleted2 = true;
 	
 	/**
 	 * This constructor sets
