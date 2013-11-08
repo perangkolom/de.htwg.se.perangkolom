@@ -11,8 +11,8 @@ public class Cell {
 	private Border cellBorder_left;
 	private Border cellBorder_right;
 	
-	public boolean schrott;
 
+	
 	public Cell(final int positionX, final int positionY, final int cellValue) {
 		this.positionX = positionX;
 		this.positionY = positionY;
