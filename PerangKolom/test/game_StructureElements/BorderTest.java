@@ -7,9 +7,28 @@ import org.junit.Test;
 public class BorderTest {
 
 	@Test
-	public void test() {
-		Border LeftBorder = new Border(true, true);
-		assertNotNull(LeftBorder);
+	public void testBorder() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testIsBorderFilled() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetBorderFilled() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testIsOuterBorder() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetOuterBorder() {
+		fail("Not yet implemented");
 	}
 
 }

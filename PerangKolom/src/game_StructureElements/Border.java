@@ -1,27 +1,28 @@
 package game_StructureElements;
 
 public class Border {
+
+	private boolean isBorderFilled;
+	private boolean isOuterBorder;
 	
-	private boolean borderFilled;
-	private boolean outerBorder;
-		
-	public Border(boolean borderFilled, boolean outerBorder) {
-		this.borderFilled = borderFilled;
-		this.outerBorder = outerBorder;
+	public Border(boolean isBorderFilled, boolean isOuterBorder) {
+		this.isBorderFilled = isBorderFilled;
+		this.isOuterBorder = isOuterBorder;
 	}
 	
 	public boolean isBorderFilled() {
-		return borderFilled; 
+		return isBorderFilled;
 	}
-	public void setBorderFilled(boolean borderFilled) {
-		this.borderFilled = borderFilled;
-	}
-	public boolean isOuterBorder() {
-		return outerBorder;
-	}
-	public void setOuterBorder(boolean outerBorder) {
-		this.outerBorder = outerBorder;
-	}
- 
 	
+	public void setBorderFilled(boolean isBorderFilled) {
+		this.isBorderFilled = isBorderFilled;
+	}
+	
+	public boolean isOuterBorder() {
+		return isOuterBorder;
+	}
+	public void setOuterBorder(boolean bool) {
+		this.isOuterBorder = isOuterBorder;
+	}
+
 }
