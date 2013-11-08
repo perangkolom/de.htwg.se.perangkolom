@@ -1,0 +1,10 @@
+======
+vergleich zweier Quelltexte zwischen verschiedenen Git-Commits anzeigen lassen:
+
+rechtsklick im package explorer -> compare with ...
+======
+branches sind dafür da:
+	z.b. wenn person a an einem modul 1 arbeitet und person b an modul2, so kann jeder einen branch anlegen, an dem er
+	ungestört arbeiten kann (auch committen usw.), ohne die arbeit des anderen zu beeinflussen, und erst wenn man die arbeit
+	an seinem modul abgeschlossen hat, soll man wieder auf den master branch mergen.
+======
