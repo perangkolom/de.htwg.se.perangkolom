@@ -21,7 +21,7 @@ public class Border {
 	public boolean isOuterBorder() {
 		return isOuterBorder;
 	}
-	public void setOuterBorder(boolean bool) {
+	public void setOuterBorder(boolean isOuterBorder) {
 		this.isOuterBorder = isOuterBorder;
 	}
 
