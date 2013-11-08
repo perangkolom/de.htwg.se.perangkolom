@@ -18,6 +18,4 @@ public class Player {
 			int i = 0;
 		return numberOfPlayers;
 	}
-
-	//Hallo dgfdsfdsfadsf
 }
