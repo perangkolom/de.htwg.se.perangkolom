@@ -2,33 +2,47 @@ package game_StructureElements;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BorderTest {
 
+	Border testBorder; 
+	
+	@Before
+	public void setUp() {
+		testBorder = new Border(true, true);
+	}
+	
 	@Test
 	public void testBorder() {
-		fail("Not yet implemented");
+		assertNotEquals(testBorder, null);
+		assertTrue(testBorder.isBorderFilled());
+		assertTrue(testBorder.isOuterBorder());
 	}
 
 	@Test
 	public void testIsBorderFilled() {
-		fail("Not yet implemented");
+		testBorder = new Border(true, true);
+		assertTrue(testBorder.isBorderFilled());
 	}
 
 	@Test
 	public void testSetBorderFilled() {
-		fail("Not yet implemented");
+		testBorder.setBorderFilled(true);
+		assertTrue(testBorder.isBorderFilled());
 	}
 
 	@Test
 	public void testIsOuterBorder() {
-		fail("Not yet implemented");
+		testBorder = new Border(true, true);
+		assertTrue(testBorder.isOuterBorder());
 	}
 
 	@Test
 	public void testSetOuterBorder() {
-		fail("Not yet implemented");
+		testBorder.setOuterBorder(true);
+		assertTrue(testBorder.isOuterBorder());
 	}
 
 }
