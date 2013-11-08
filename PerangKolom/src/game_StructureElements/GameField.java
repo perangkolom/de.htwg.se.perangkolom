@@ -6,6 +6,9 @@ public class GameField {
 	private static int numberOfColums;
 	private static int[][] fieldMatrix;
 	private static boolean gameFieldAlreadyCreated = false;
+	
+	public static boolean testVariabletoBeDeleted = true;
+	
 	/**
 	 * This constructor sets
 	 * 
