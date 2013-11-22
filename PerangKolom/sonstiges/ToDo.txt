@@ -1,0 +1,19 @@
+TUI 
+	(MVC umsetzen)
+
+Sonar:
+
+  Violations entfernen
+  Rules Compliance richtung 100%
+  Test coverage auf 100%
+
+Scrum: 
+	wie weit/genau muessen wir hier sein?
+
+
+
+  
+  
+Wissen nachholen:
+	MVC (model-view-controller): verstehen und umsetzen koennen
+	git mergen, branches usw verstehen
