@@ -1,4 +1,4 @@
-package game_StructureElements;
+package de.htwg.se.PerangKolom.StructureElements;
 
 public class Border {
 

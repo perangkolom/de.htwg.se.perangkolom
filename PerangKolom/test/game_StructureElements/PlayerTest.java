@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.htwg.se.PerangKolom.StructureElements.Player;
+
 public class PlayerTest {
 
 	Player player1;
