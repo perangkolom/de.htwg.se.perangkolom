@@ -1,9 +1,9 @@
 package de.htwg.se.PerangKolom.aview.tui;
 
 import de.htwg.se.PerangKolom.util.observer.Event;
-import de.htwg.se.PerangKolom.util.observer.IObservable;
+import de.htwg.se.PerangKolom.util.observer.IObserver;
 
-public class TextUI  implements IObservable  {
+public class TextUI  implements IObserver  {
 
 	@Override
 	public void update(Event e) {
