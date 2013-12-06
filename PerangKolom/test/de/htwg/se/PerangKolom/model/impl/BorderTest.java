@@ -1,11 +1,11 @@
-package game_StructureElements;
+package de.htwg.se.PerangKolom.model.impl;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.PerangKolom.StructureElements.Border;
+import de.htwg.se.PerangKolom.model.impl.Border;
 
 public class BorderTest {
 
