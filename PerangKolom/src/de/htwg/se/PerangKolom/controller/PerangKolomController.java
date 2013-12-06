@@ -1,9 +1,11 @@
 package de.htwg.se.PerangKolom.controller;
 
-import de.htwg.sudoku.model.IGrid;
-import de.htwg.se.PerangKolom.util.observer.IObservable;
+import de.htwg.se.PerangKolom.model.impl.Border;
+import de.htwg.se.PerangKolom.model.impl.Cell;
+import de.htwg.se.PerangKolom.model.impl.GameField;
+import de.htwg.se.PerangKolom.util.observer.Observable;
 
-public interface PerangKolomController extends UnserObservable{
+public interface PerangKolomController extends Observable{
 
 
 	/**
