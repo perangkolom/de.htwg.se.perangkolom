@@ -5,7 +5,11 @@ import de.htwg.se.PerangKolom.model.impl.*;
 public class OneCellArray {
 
 	//size (=width =height) of one cell
-	public static int CELL_SIZE = 10; 	
+	public static int CELL_SIZE = 10;
+	
+	/**
+	 * Text-Array with the "graphical information" for one cell for the TUI"
+	 */
 	char[][] cellOutputStringArray;
 		
 	
@@ -22,8 +26,6 @@ public class OneCellArray {
 	//isFirst: if it's the border with the low index (top or left)
 	private void printBorders(Cell cell, Border border, boolean isVertical, boolean isFirst) {
 		
-		
-		
 		//print inner standard border
 		printBorderString(isVertical, 1, isFirst);
 		
@@ -31,12 +33,8 @@ public class OneCellArray {
 		if (border.isBorderFilled()) {
 			
 			printBorderString(isVertical, 0 , isFirst);
-		}
-		
-	}
-			
-
-
+		}		
+	}	
 
 	private void printBorderString (boolean isVertical, int lineIndexOfArray, boolean isFirst) {
 
@@ -61,8 +59,7 @@ public class OneCellArray {
 		
 		//if border is horizontal:
 		if ( !isVertical ) {
-			
-			
+		
 			for ( int i = 0; i < steps; i++) {
 				cellOutputStringArray[index] [i] = '*';
 			}
@@ -74,7 +71,5 @@ public class OneCellArray {
 				cellOutputStringArray[i] [index] = '*';
 			}
 		}
-		
-
 	}
 }

@@ -8,7 +8,9 @@ import de.htwg.se.PerangKolom.aview.tui.*;
 public class PrintCell_1 {
 
 	
-	public static void main(int argc, String[] argv) {
+	
+	
+	public static print {
 		
 		Cell testZelle = new Cell(0,0, 100);
 		OneCellArray test = new OneCellArray(testZelle);
