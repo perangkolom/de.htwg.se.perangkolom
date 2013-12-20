@@ -4,7 +4,7 @@ public class GameField {
 
 	private static int numberOfRows;
 	private static int numberOfColums;
-	private static int[][] fieldMatrix;
+	private static int[][] gameFieldMatrix;
 	private static boolean gameFieldAlreadyCreated = false;
 	
 	public static boolean testVariabletoBeDeleted = true;
@@ -22,7 +22,7 @@ public class GameField {
 		} else {
 		numberOfRows = x;
 		numberOfColums = y;
-		fieldMatrix = new int[numberOfRows][numberOfColums];
+		gameFieldMatrix = new int[numberOfRows][numberOfColums];
 		}
 	}
 	
@@ -44,11 +44,11 @@ public class GameField {
 	}
 
 	public static int[][] getFieldMatrix() {
-		return fieldMatrix;
+		return gameFieldMatrix;
 	}
 
 	public static void setFieldMatrix(int[][] fieldMatrix) {
-		GameField.fieldMatrix = fieldMatrix;
+		GameField.gameFieldMatrix = fieldMatrix;
 	}
 	
 	

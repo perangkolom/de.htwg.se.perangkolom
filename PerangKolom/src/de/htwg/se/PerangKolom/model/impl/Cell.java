@@ -10,11 +10,16 @@ public class Cell {
 	private Border cellBorder_bottom;
 	private Border cellBorder_left;
 	private Border cellBorder_right;
+	//char-Matrix with the "graphical information" for one cell for the TUI
+	public char[][] cellOutputStringArray;
+	//size (=width =height) of one cell
+	public static int CELL_SIZE = 10;
 	
 	public Cell(final int positionX, final int positionY, final int cellValue) {
 		this.positionX = positionX;
 		this.positionY = positionY;
 		this.cellValue = cellValue;
+		cellOutputStringArray = new char[CELL_SIZE][CELL_SIZE];
 	}
 
 	public int getPositionX() {
