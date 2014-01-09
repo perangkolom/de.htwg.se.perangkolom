@@ -1,7 +1,3 @@
-Stand Freitag 06.12.2013:
+Struktur der TUI-Erzeugung:
 
-In der Datei OneCellArray die Methode für den Output von einer Zelle geschrieben. diese sollte im prinzip auch funktionieren.
 
-noch eine ausgabefunktion für das cellarray-ding schreiben.
-
-ausgabefunktion dann natürlich auch in der main aufrufen 

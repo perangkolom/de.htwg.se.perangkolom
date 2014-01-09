@@ -2,8 +2,9 @@ package de.htwg.se.PerangKolom.model.impl;
 
 public class Border {
 
-	private boolean isBorderFilled;
-	private boolean isOuterBorder;
+	private boolean isBorderFilled = false;
+	private boolean isOuterBorder = false;
+	
 	
 	public Border(boolean isBorderFilled, boolean isOuterBorder) {
 		this.isBorderFilled = isBorderFilled;

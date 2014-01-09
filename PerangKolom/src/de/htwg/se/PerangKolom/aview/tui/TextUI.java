@@ -29,7 +29,10 @@ public class TextUI  implements IObserver  {
 		
 	public static void printTUI() {
 		System.out.println("TUI of PerangKolom:");
-		PrintGameField.printCell();
+		
+		//
+		PrintGameField.fillGameMatrix();
+		PrintGameField.printGameFieldString();
 	}
 
 }
