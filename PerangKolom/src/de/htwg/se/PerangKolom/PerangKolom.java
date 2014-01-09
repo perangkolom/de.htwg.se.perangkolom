@@ -2,7 +2,8 @@ package de.htwg.se.PerangKolom;
 
 import java.util.Scanner;
 
-import de.htwg.se.PerangKolom.aview.tui.MatrixForOneCell;
+import de.htwg.se.PerangKolom.aview.tui.FillCharMatrixOfASingleCell;
+import de.htwg.se.PerangKolom.aview.tui.PrintGameField;
 import de.htwg.se.PerangKolom.aview.tui.TextUI;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 
@@ -23,14 +24,12 @@ public final class PerangKolom {
 		PerangKolom.getInstance();
 		
 		//create CellArray to have a Container for the Cell thats keeps them in order
+		//this is so to say the Gamefield
 		new CellArray(3,3);
-		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
-			
-			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
-				MatrixForOneCell.fillOneSingleCellWithChars(CellArray.cellArray[i][j]);
-			}
-		}
 		
+		//PrintGameField.makeAllBordersFilled();
+
+
 		//fill textual data into the single cells and print out the whole array 
 		TextUI.printTUI();
 		

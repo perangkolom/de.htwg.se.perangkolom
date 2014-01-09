@@ -24,19 +24,17 @@ public class PrintGameField {
 			gameFieldString = new char[CellArray.getNumberOfColums() * Cell.CELL_SIZE][CellArray.getNumberOfColums()  * Cell.CELL_SIZE];
 		}
 	
-		//loop to fill up the game-field
+		//loop to fill up the game-field with 
 		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
 			
 			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
 				
-				//fill one Cell with the chars for borders and content
-				MatrixForOneCell.fillOneSingleCellWithChars(CellArray.cellArray[i][j]);
+				FillCharMatrixOfASingleCell.fillOneSingleCellWithChars(CellArray.cellArray[i][j]);
  				
 				//copy the chars of one single Cell into the char-matrix that shall finally be printed
 				copyCelltoGameFieldMatrix(i,j, CellArray.cellArray[i][j]);
 			}
 		}
-		 
 	}
 	
 	/**
@@ -51,12 +49,12 @@ public class PrintGameField {
 		for (int i = 0; i < Cell.CELL_SIZE; i++) {
 			
 			for (int j = 0; j < Cell.CELL_SIZE; j++) {
-				gameFieldString[indX + i][indY + j] = cell.cellOutputStringArray[gameFieldRow][gameFieldColumn];
-				//System.out.println(cell.cellOutputStringArray[gameFieldRow][gameFieldColumn]);
+				gameFieldString[indX + i][indY + j] = cell.cellOutputStringArray[i][j];
 			}
 		}
 	}
 
+	
 	/**
 	 * this method prints the matrix for the whole game-field char by char. (it is the TUIs final output method for the game-field)
 	 */
@@ -65,11 +63,25 @@ public class PrintGameField {
 		int stepsForCols = CellArray.getNumberOfColums() * Cell.CELL_SIZE;
 		System.out.println("stepsForRows: " + stepsForRows + "\n");
 		System.out.println("stepsForCols: " + stepsForCols + "\n");
-		for (int i = 0; i < stepsForRows; i++ ) {
-			System.out.println("\n");
+		
+		for (int i = 0; i < stepsForRows; i++ ) {		
+		
 			for (int j = 0; j < stepsForCols; j++ ) {
-				//System.out.println("dfasfd");
-				System.out.print(gameFieldString[i][j]);
+				System.out.print(gameFieldString[i][j]);		
+			}
+			System.out.print("\n");
+		}
+	}
+
+
+	public static void makeAllBordersFilled() {
+		
+		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
+			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
+				CellArray.cellArray[i][j].getCellBorder_top().setBorderFilled(true);
+				CellArray.cellArray[i][j].getCellBorder_bottom().setBorderFilled(true);
+				CellArray.cellArray[i][j].getCellBorder_left().setBorderFilled(true);
+				CellArray.cellArray[i][j].getCellBorder_right().setBorderFilled(true);
 			}
 		}
 	}
