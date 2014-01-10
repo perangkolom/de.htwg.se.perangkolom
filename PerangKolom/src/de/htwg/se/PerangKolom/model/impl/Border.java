@@ -1,6 +1,8 @@
 package de.htwg.se.PerangKolom.model.impl;
 
-public class Border {
+import de.htwg.se.PerangKolom.model.IBorder;
+
+public class Border implements IBorder{
 
 	private boolean isBorderFilled = false;
 	private boolean isOuterBorder = false;
