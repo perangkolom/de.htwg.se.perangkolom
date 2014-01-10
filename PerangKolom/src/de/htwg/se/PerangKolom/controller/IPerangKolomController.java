@@ -2,12 +2,15 @@ package de.htwg.se.PerangKolom.controller;
 
 import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
-import de.htwg.se.PerangKolom.model.impl.GameField;
+import de.htwg.se.PerangKolom.model.impl.CellArray;
+import de.htwg.se.PerangKolom.model.impl.Player;
+import de.htwg.se.PerangKolom.util.observer.IObservable;
 import de.htwg.se.PerangKolom.util.observer.Observable;
 
-public interface PerangKolomController extends Observable{
+public interface IPerangKolomController extends IObservable{
 
 
+	
 	/**
 	 * Create a string representation of the Sudoku puzzle and put it into the
 	 * system clip board
@@ -161,6 +164,4 @@ public interface PerangKolomController extends Observable{
 	 */
 	void resetSize(int newSize);
 
-
-}
 }
