@@ -27,7 +27,7 @@ public final class PerangKolom {
 		//this is so to say the Gamefield
 		new CellArray(3,3);
 		
-		//PrintGameField.makeAllBordersFilled();
+		PrintGameField.makeAllBordersFilled();
 
 
 		//fill textual data into the single cells and print out the whole array 

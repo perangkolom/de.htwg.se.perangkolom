@@ -1,11 +1,11 @@
 package de.htwg.se.PerangKolom.model.impl;
 
 public class Cell {
-	private final int liesInRow;
-	private final int liesInCol;
+	private final int liesInRow; //????????????????????
+	private final int liesInCol; //????????????????????
 	private final int cellValue;
 	private boolean cellFilled;
-	private String cellOwner;
+	private String cellOwner; //CellColor
 	private Border cellBorder_top = new Border(false, false);
 	private Border cellBorder_bottom = new Border(false, false);
 	private Border cellBorder_left = new Border(false, false);

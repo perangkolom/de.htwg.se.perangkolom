@@ -2,16 +2,18 @@ package de.htwg.se.PerangKolom.model.impl;
 
 public class Player {
 
-	private final String name;
+	private final String PlayerName;
 	private final int numberOfPlayers;
+	private final int numberOfPoints;
 
-	public Player(String name, int numberOfPlayers) {
-		this.name = name;
+	public Player(String playerName, int numberOfPlayers, int numberOfPoints) {
+		this.PlayerName = playerName;
 		this.numberOfPlayers = numberOfPlayers;
+		this.numberOfPoints = numberOfPoints;
 	}
 
 	public String getName() {
-		return name;
+		return PlayerName;
 	}
 
 	public int getNumberOfPlayers() {

@@ -33,7 +33,7 @@ public class OutputTestWithOneCell {
 		}	
 		
 		
-		//PrintGameField.fillGameMatrix();
+		PrintGameField.fillGameMatrix();
 		//PrintGameField.printGameFieldString();
 	}
 }
