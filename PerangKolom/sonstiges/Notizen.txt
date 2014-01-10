@@ -8,3 +8,4 @@ branches sind dafür da:
 	ungestört arbeiten kann (auch committen usw.), ohne die arbeit des anderen zu beeinflussen, und erst wenn man die arbeit
 	an seinem modul abgeschlossen hat, soll man wieder auf den master branch mergen.
 ======
+

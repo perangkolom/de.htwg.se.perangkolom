@@ -8,7 +8,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 
 	@Override
 	public void createNewGrid() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

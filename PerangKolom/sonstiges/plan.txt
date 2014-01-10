@@ -1,0 +1,27 @@
+Fragen: 
+
+  wieviele Controller und für was?
+
+  Kommunikation zwischen Controller und Model (was gehört wohin)
+
+  Logger
+  		welches Package/bzw. welchen Logger verwenden
+  		genau bei anderen anschauen
+  		
+  		
+  		
+  		
+  		
+NOCH ZU ERLEDIGEN:
+
+  mvc umsetzen
+  Pattern reinschreiben
+  
+  
+
+  Sonar-Kriterien erfüllen (Test-Coverage, ...)
+  Präsentation machen
+  Dokumentation für Interfaces in Javadoc, Rest in Markdown
+    		
+
+
