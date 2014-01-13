@@ -9,35 +9,32 @@ import de.htwg.se.PerangKolom.util.observer.Observable;
 
 public interface IPerangKolomController extends IObservable{
 
-	/*
-	 * creates new gamefield as grid, starts the game
+	/**
+	 * creates a new gamefield.
 	 */
-	public void createNewGrid();
+	public void createNewGrid(int x, int y);
 	
-	/*
-	 * resets the game, starts the game again, with same parameters
+	/**
+	 * resets the game, starts the game again with the same parameters
 	 */
 	public void reset();
 	
-	/*
+	/**
 	 * exits the game
 	 */
 	public void exit();
 	
-	/*
+	/**
 	 * fills chosen Border and checks if cell has to be filled
 	 */
 	public void fillBorder(Border border);
 	
-	/*
+	/**
 	 * All Computer Logic:
-	 * - chose one of the three strategies
-	 * - calls function 'fillBorder()'
+	 * - determines a strategy
+	 * - calls the function 'fillBorder()'
 	 */
-	public void ComputerLogic();
+	public void computerLogic();
 	
-	/*
-	 * 
-	 */
-	//public void ();
+	
 }

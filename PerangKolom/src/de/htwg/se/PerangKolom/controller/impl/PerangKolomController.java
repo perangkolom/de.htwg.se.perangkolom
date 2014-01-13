@@ -1,21 +1,26 @@
 package de.htwg.se.PerangKolom.controller.impl;
 
 import de.htwg.se.PerangKolom.controller.IPerangKolomController;
+import de.htwg.se.PerangKolom.model.AbstractCellArray;
 import de.htwg.se.PerangKolom.model.impl.Border;
+import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.util.observer.Observable;
 
 public class PerangKolomController extends Observable implements IPerangKolomController{
 
+
 	@Override
-	public void createNewGrid() {
-		
-		
+	public void createNewGrid(int x, int y) {
+		 new CellArray(x,y);
+		 //notifyObservers();
 	}
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
-		
+		if (AbstractCellArray.gameFieldAlreadyCreated != true) { 
+			throw new IllegalAccessError();
+		}
+		//createNewGrid();
 	}
 
 	@Override
@@ -31,7 +36,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 	}
 
 	@Override
-	public void ComputerLogic() {
+	public void computerLogic() {
 		// TODO Auto-generated method stub
 		
 	}
