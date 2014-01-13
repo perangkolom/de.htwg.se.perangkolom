@@ -1,5 +1,8 @@
 package de.htwg.se.PerangKolom.model.impl;
 
+import de.htwg.se.PerangKolom.model.impl.CellArray;
+import de.htwg.se.PerangKolom.model.ICellArray;
+
 public class Cell {
 	private final int liesInRow; //????????????????????
 	private final int liesInCol; //????????????????????
@@ -10,6 +13,7 @@ public class Cell {
 	private Border cellBorder_bottom = new Border(false, false);
 	private Border cellBorder_left = new Border(false, false);
 	private Border cellBorder_right = new Border(false, false);
+	private CellArray cellArray = new CellArray(0, 0);
 	//char-Matrix with the "graphical information" for one cell for the TUI
 	public char[][] cellOutputStringArray;
 	//size (=width =height) of one cell
@@ -30,7 +34,7 @@ public class Cell {
 			cellBorder_left.setOuterBorder(true);
 		}
 		
-		if (liesInCol == (CellArray.getNumberOfColums() - 1) ) {
+		if (liesInCol == (cellArray.getNumberOfColums() - 1) ) {
 			cellBorder_right.setOuterBorder(true);
 		}
 		
@@ -39,7 +43,7 @@ public class Cell {
 			cellBorder_top.setOuterBorder(true);
 		}
 		
-		if (liesInRow == CellArray.getNumberOfRows() - 1) {
+		if (liesInRow == cellArray.getNumberOfRows() - 1) {
 			cellBorder_bottom.setOuterBorder(true);
 		}
 	}

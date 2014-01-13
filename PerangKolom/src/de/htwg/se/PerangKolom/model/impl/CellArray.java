@@ -1,8 +1,9 @@
 package de.htwg.se.PerangKolom.model.impl;
 
+import de.htwg.se.PerangKolom.model.ICellArray;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 
-public class CellArray {
+public class CellArray implements ICellArray{
 
 	private static int numberOfRows;
 	private static int numberOfColums;
@@ -39,27 +40,27 @@ public class CellArray {
 	}
 	
 
-	public static int getNumberOfRows() {
+	public int getNumberOfRows() {
 		return numberOfRows;
 	}
 
-	private static void setNumberOfRows(int numberOfRows) {
+	private void setNumberOfRows(int numberOfRows) {
 		CellArray.numberOfRows = numberOfRows;
 	}
 
-	public static int getNumberOfColums() {
+	public int getNumberOfColums() {
 		return numberOfColums;
 	}
 
-	private static void setNumberOfColums(int numberOfColums) {
+	private void setNumberOfColums(int numberOfColums) {
 		CellArray.numberOfColums = numberOfColums;
 	}
 
-	public static Cell[][] getCellArray() {
+	public Cell[][] getCellArray() {
 		return cellArray;
 	}
 
-	private static void setCellArray(Cell[][] array) {
+	private void setCellArray(Cell[][] array) {
 		CellArray.cellArray = array;
 	}
 	
