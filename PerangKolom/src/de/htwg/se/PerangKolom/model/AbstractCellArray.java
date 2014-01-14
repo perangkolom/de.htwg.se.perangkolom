@@ -5,8 +5,8 @@ import de.htwg.se.PerangKolom.model.impl.CellArray;
 
 public class AbstractCellArray implements ICellArray{
 
-	protected static int numberOfRows;
-	protected static int numberOfColums;
+	protected  int numberOfRows;
+	protected int numberOfColums;
 	
 	/**
 	 * this array is necessary to be able to save the cells in the correct ordering
