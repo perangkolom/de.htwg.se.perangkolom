@@ -5,4 +5,6 @@ public interface IPlayer {
 	public String getName();
 
 	public int getNumberOfPlayers();
+
+	public int getNumberOfPoints();
 }

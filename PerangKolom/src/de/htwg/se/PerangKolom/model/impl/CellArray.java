@@ -1,19 +1,11 @@
 package de.htwg.se.PerangKolom.model.impl;
 
-import de.htwg.se.PerangKolom.model.ICellArray;
+import de.htwg.se.PerangKolom.model.AbstractCellArray;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 
-public class CellArray implements ICellArray{
+public class CellArray extends AbstractCellArray{
 
-	private static int numberOfRows;
-	private static int numberOfColums;
-	
-	/**
-	 * this array is necessary to be able to save the cells in the correct ordering
-	 * there's no graphical information directly in this class
-	 */
-	public static Cell[][] cellArray;
-	private static boolean gameFieldAlreadyCreated = false;
+
 	
 	/**
 	 * This constructor sets
@@ -40,29 +32,6 @@ public class CellArray implements ICellArray{
 	}
 	
 
-	public int getNumberOfRows() {
-		return numberOfRows;
-	}
-
-	private void setNumberOfRows(int numberOfRows) {
-		CellArray.numberOfRows = numberOfRows;
-	}
-
-	public int getNumberOfColums() {
-		return numberOfColums;
-	}
-
-	private void setNumberOfColums(int numberOfColums) {
-		CellArray.numberOfColums = numberOfColums;
-	}
-
-	public Cell[][] getCellArray() {
-		return cellArray;
-	}
-
-	private void setCellArray(Cell[][] array) {
-		CellArray.cellArray = array;
-	}
 	
 	
 }
