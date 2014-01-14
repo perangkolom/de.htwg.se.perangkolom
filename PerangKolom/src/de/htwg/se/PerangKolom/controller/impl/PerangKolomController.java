@@ -42,5 +42,15 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 	}
 
 
+/*
 
+startGame()
+createNewGameField()
+
+
+
+
+ * 
+ * 
+ * */
 }
