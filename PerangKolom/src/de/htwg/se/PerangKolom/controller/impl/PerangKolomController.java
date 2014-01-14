@@ -11,7 +11,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 	ICell cell;
 	
 	public void setValue(int row, int column, int value){
-		cell = 
+
 	}
 	
 	@Override
@@ -40,7 +40,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 
 	@Override
 	public void ComputerLogic() {
-		if()
+		//if()
 		
 	}
 
