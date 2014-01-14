@@ -2,6 +2,8 @@ package de.htwg.se.PerangKolom.aview.tui;
 
 import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
+import org.apache.log4j.Logger;
+import org.apache.log4j.BasicConfigurator;
 
 public class FillCharMatrixOfASingleCell {
 
