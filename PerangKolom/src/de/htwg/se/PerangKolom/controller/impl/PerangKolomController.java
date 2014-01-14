@@ -43,7 +43,4 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		//if()
 		
 	}
-
-
-
 }
