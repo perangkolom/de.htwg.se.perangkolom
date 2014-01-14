@@ -12,7 +12,7 @@ public interface IPerangKolomController extends IObservable{
 	/*
 	 * creates new gamefield as grid, starts the game
 	 */
-	public void createNewGrid();
+	public void createNewGrid(int x, int y);
 	
 	/*
 	 * resets the game, starts the game again, with same parameters

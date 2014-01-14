@@ -5,6 +5,7 @@ import java.util.Scanner;
 import de.htwg.se.PerangKolom.aview.tui.FillCharMatrixOfASingleCell;
 import de.htwg.se.PerangKolom.aview.tui.PrintGameField;
 import de.htwg.se.PerangKolom.aview.tui.TextUI;
+import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 
 public final class PerangKolom {
@@ -25,7 +26,7 @@ public final class PerangKolom {
 		
 		//create CellArray to have a Container for the Cell thats keeps them in order
 		//this is so to say the Gamefield
-		new CellArray(3,3);
+		Cell[][] cellArray = CellArray.getInstance();
 		
 		PrintGameField.makeAllBordersFilled();
 

@@ -17,7 +17,7 @@ public class OutputTestWithOneCell {
 		System.out.println("=================================================================");
 		*/
 		
-		new CellArray(1, 1);
+		new CellArray();
 		Cell theOnlyCell = new Cell(0, 0, 100);
 		FillCharMatrixOfASingleCell.fillOneSingleCellWithChars(theOnlyCell);
 		

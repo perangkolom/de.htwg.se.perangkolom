@@ -1,6 +1,6 @@
 package de.htwg.se.PerangKolom.model;
 
-public class AbstractPlayer implements IPlayer{
+public abstract class AbstractPlayer implements IPlayer{
 
 	private String PlayerName;
 	private int numberOfPlayers;

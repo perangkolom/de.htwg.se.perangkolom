@@ -1,6 +1,6 @@
 package de.htwg.se.PerangKolom.model;
 
-public class AbstractBorder implements IBorder{
+public abstract class AbstractBorder implements IBorder{
 	
 	protected boolean isBorderFilled = false;
 	protected boolean isOuterBorder = false;

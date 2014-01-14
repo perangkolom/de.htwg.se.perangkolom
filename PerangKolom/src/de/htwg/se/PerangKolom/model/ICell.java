@@ -13,6 +13,8 @@ public interface ICell {
 	public void setCellFilled(boolean cellFilled);
 	
 	public int getCellValue();
+	
+	public void setCellValue(int value);
 
 	public String getCellOwner();
 
@@ -33,4 +35,5 @@ public interface ICell {
 	public Border getCellBorder_right();
 
 	public void setCellBorder_right(Border cellBorder_right);
+
 }
