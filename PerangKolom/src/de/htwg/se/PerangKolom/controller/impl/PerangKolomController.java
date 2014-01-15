@@ -17,7 +17,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 
 	public Cell cell;
 	public TreeSet<Cell> CellArraySet = new TreeSet<Cell>();
-
+	public int counter = 0;
 	
 	public void setValue(int row, int column, int value){
 		cell.setCellValue(value);
@@ -98,6 +98,9 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 				}
 			}
 			algorithmOne.chooseStrategy(cellBuf);
+			// if computer chooses this algorithm and closes the 4th border, it is still his turn
+			ComputerLogic();
+
 		/****** IF-Clause for the 'NotPutForward Algorithm ******/
 		} else if(!CellSetBufferLessThanTwoBorders.isEmpty()){
 			for(Cell c : CellSetBufferLessThanTwoBorders){

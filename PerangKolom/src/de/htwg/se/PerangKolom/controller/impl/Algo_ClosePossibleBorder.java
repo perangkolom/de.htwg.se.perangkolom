@@ -24,7 +24,7 @@ public class Algo_ClosePossibleBorder implements CurrentStrategy{
 		if(cell.getCellBorder_top().isBorderFilled() == false){
 			cell.getCellBorder_top().setBorderFilled(true);
 		}
-		//-->>>nochmals Algorithmenauswahl wiederholen
+		
 	}
 
 
