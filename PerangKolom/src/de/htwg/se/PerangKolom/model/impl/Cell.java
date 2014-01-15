@@ -2,7 +2,6 @@ package de.htwg.se.PerangKolom.model.impl;
 
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.model.AbstractCell;
-import de.htwg.se.PerangKolom.model.ICellArray;
 
 public class Cell extends AbstractCell{
 	

@@ -6,10 +6,9 @@ import de.htwg.se.PerangKolom.model.impl.Cell;
 public class ComputerPlayerLogic {
 
 	public CurrentStrategy strategy;
-	public Cell cell;
 	
 	
-	public void chooseStrategy(){
+	public void chooseStrategy(Cell cell){
 		strategy.StrategyAlgorithm(cell);
 		return;
 	}
@@ -17,4 +16,5 @@ public class ComputerPlayerLogic {
 	public void setStrategy(CurrentStrategy newStrategy){
 		strategy = newStrategy;
 	}
+
 }
