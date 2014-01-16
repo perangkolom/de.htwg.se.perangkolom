@@ -15,11 +15,11 @@ import de.htwg.se.PerangKolom.util.observer.Observable;
 
 public class PerangKolomController extends Observable implements IPerangKolomController{
 
-	public Cell cell;
+	public Cell[][] cellArray = CellArray.getInstance();
 	public TreeSet<Cell> CellArraySet = new TreeSet<Cell>();
 	
-	public void setValue(int row, int column, int value){
-		cell.setCellValue(value);
+	public void setCellValue(int row, int column, int value){
+		cellArray[row][column].setCellValue(value);
 	}
 	
 	
@@ -46,7 +46,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 	}
 
 	/* 'ClosePossibleBorder' Algorithm */
-	public void firstAlgo(List<Cell> CellSetBufferWithThreeBorders){
+	public void ClosePossibleBorderAlgo(List<Cell> CellSetBufferWithThreeBorders){
 		
 		/* Objects */
 		CurrentStrategy strategyOne = new Algo_ClosePossibleBorder();
@@ -64,11 +64,10 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		// it is still his turn
 		ComputerLogic();
 		
-		algorithmOne.setStrategy(strategyOne);
 	}
 	
 	/* 'NotPutForward' Algorithm */
-	public void secondAlgo(List<Cell> CellSetBufferLessThanTwoBorders){
+	public void NotPutForwardAlgo(List<Cell> CellSetBufferLessThanTwoBorders){
 		
 		CurrentStrategy strategyTwo = new Algo_NotPutForward();
 		ComputerPlayerLogic algorithmTwo = new ComputerPlayerLogic();
@@ -88,7 +87,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 	}
 	
 	/* 'SacrificeLowestValue' Algorithm */
-	public void ThirdAlgo(List<Cell> CellSetBufferWithTwoBorder){
+	public void SacrificeLowestValueAlgo(List<Cell> CellSetBufferWithTwoBorder){
 		
 		ComputerPlayerLogic algorithmThree = new ComputerPlayerLogic();
 		CurrentStrategy strategyThree = new Algo_SacrificeLowestValue();
@@ -134,15 +133,16 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		
 		/****** IF-Clause for the 'ClosePossibleBorder' Algorithm ******/
 		if(!CellSetBufferWithThreeBorders.isEmpty()){
-			firstAlgo(CellSetBufferWithThreeBorders);
+			ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
 		/****** IF-Clause for the 'NotPutForward Algorithm ******/
 		} else if(!CellSetBufferLessThanTwoBorders.isEmpty()){
-			secondAlgo(CellSetBufferLessThanTwoBorders);
+			NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
 		/****** IF-Clause for the 'SacrificeLowestValue' Algorithm ******/
 		} else if(!CellSetBufferWithTwoBorder.isEmpty()){
-			ThirdAlgo(CellSetBufferWithTwoBorder);
+			SacrificeLowestValueAlgo(CellSetBufferWithTwoBorder);
 		}
 	}
+
 
 	
 }

@@ -11,10 +11,7 @@ public class Algo_NotPutForward implements CurrentStrategy{
 			cell.getCellBorder_bottom().setBorderFilled(true);
 			return;
 		}
-		if(cell.getCellBorder_left().isBorderFilled() == false){
-			cell.getCellBorder_left().setBorderFilled(true);
-			return;
-		}
+
 		if(cell.getCellBorder_right().isBorderFilled() == false){
 			cell.getCellBorder_right().setBorderFilled(true);
 			return;
@@ -23,7 +20,10 @@ public class Algo_NotPutForward implements CurrentStrategy{
 			cell.getCellBorder_top().setBorderFilled(true);
 			return;
 		}
-		
+		if(cell.getCellBorder_left().isBorderFilled() == false){
+			cell.getCellBorder_left().setBorderFilled(true);
+			return;
+		}
 	}
 
 }

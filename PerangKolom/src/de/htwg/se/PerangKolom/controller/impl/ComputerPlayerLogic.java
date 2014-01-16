@@ -10,7 +10,6 @@ public class ComputerPlayerLogic {
 	
 	public void chooseStrategy(Cell cell){
 		strategy.StrategyAlgorithm(cell);
-		return;
 	}
 	
 	public void setStrategy(CurrentStrategy newStrategy){

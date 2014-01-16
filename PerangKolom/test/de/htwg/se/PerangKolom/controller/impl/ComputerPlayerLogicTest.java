@@ -8,27 +8,30 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.htwg.se.PerangKolom.controller.CurrentStrategy;
+import de.htwg.se.PerangKolom.model.impl.Cell;
+
 public class ComputerPlayerLogicTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public CurrentStrategy strategy;
+	public ComputerPlayerLogic cpl;
+	public Cell cell;
+	
+	@Before 
+	public void setUp() {
+		cell = new Cell(0, 0, 100);
+		cpl = new ComputerPlayerLogic();
 	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	
+	public void testChooseStrategy(){
+		cpl.chooseStrategy(cell);
+		
 	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+	
+	public void testSetStrategy(){
+		CurrentStrategy strategy = new Algo_SacrificeLowestValue();
+		cpl.setStrategy(strategy);
+		assertEquals(new Algo_SacrificeLowestValue(), strategy);
 	}
 
 }
