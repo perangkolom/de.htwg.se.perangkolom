@@ -1,10 +1,8 @@
 package de.htwg.se.PerangKolom.controller;
 
-import de.htwg.se.PerangKolom.model.impl.Cell;
-import de.htwg.se.PerangKolom.model.impl.CellArray;
-import de.htwg.se.PerangKolom.model.impl.Player;
+
 import de.htwg.se.PerangKolom.util.observer.IObservable;
-import de.htwg.se.PerangKolom.util.observer.Observable;
+
 
 public interface IPerangKolomController extends IObservable{
 

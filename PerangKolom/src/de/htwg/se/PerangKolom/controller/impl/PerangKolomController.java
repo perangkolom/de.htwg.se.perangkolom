@@ -2,12 +2,10 @@ package de.htwg.se.PerangKolom.controller.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 import de.htwg.se.PerangKolom.controller.CurrentStrategy;
 import de.htwg.se.PerangKolom.controller.IPerangKolomController;
-import de.htwg.se.PerangKolom.model.ICell;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.util.observer.Observable;

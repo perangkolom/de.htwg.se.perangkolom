@@ -2,11 +2,7 @@ package de.htwg.se.PerangKolom.controller.impl;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import de.htwg.se.PerangKolom.controller.CurrentStrategy;
 import de.htwg.se.PerangKolom.model.impl.Cell;

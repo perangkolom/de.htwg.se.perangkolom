@@ -1,7 +1,5 @@
 package de.htwg.se.PerangKolom.model.impl;
 
-import de.htwg.se.PerangKolom.model.AbstractMessagesForUser;
-
 public class MessagesForUser2  {
 
 	public static final String startOfTheGame = "You are now playing PerangKolom, the best game EVER created!\n";
