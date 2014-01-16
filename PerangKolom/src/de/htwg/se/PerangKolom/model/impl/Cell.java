@@ -10,8 +10,8 @@ public class Cell extends AbstractCell{
 		this.liesInCol = indexY;
 		this.cellValue = cellValue;
 		cellOutputStringArray = new char[CELL_SIZE][CELL_SIZE];
-		makeBordersForCell();
 	}
+
 
 
 }

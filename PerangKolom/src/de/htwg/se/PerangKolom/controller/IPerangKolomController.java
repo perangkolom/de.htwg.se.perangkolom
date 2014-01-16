@@ -1,6 +1,5 @@
 package de.htwg.se.PerangKolom.controller;
 
-import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.model.impl.Player;
@@ -23,11 +22,6 @@ public interface IPerangKolomController extends IObservable{
 	 * exits the game
 	 */
 	public void exit();
-	
-	/*
-	 * fills chosen Border and checks if cell has to be filled
-	 */
-	public void fillBorder(Border border);
 	
 	/*
 	 * All Computer Logic:

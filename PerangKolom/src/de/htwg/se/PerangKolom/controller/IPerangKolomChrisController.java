@@ -1,6 +1,5 @@
 package de.htwg.se.PerangKolom.controller;
 
-import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.util.observer.Event;
 import de.htwg.se.PerangKolom.util.observer.IObservable;

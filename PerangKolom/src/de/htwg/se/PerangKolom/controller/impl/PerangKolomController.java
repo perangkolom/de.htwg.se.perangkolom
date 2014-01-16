@@ -8,7 +8,6 @@ import java.util.TreeSet;
 import de.htwg.se.PerangKolom.controller.CurrentStrategy;
 import de.htwg.se.PerangKolom.controller.IPerangKolomController;
 import de.htwg.se.PerangKolom.model.ICell;
-import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.util.observer.Observable;
@@ -40,10 +39,10 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		
 	}
 
-	@Override
-	public void fillBorder(Border border) {
-		border.setBorderFilled(true);
-	}
+//	@Override
+//	public void fillBorder(Border border) {
+//		border.setBorderFilled(true);
+//	}
 
 	/* 'ClosePossibleBorder' Algorithm */
 	public void ClosePossibleBorderAlgo(List<Cell> CellSetBufferWithThreeBorders){

@@ -3,7 +3,6 @@ package de.htwg.se.PerangKolom.controller.impl;
 import java.util.logging.Logger;
 
 import de.htwg.se.PerangKolom.controller.IPerangKolomChrisController;
-import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.MessagesForUser;
 import de.htwg.se.PerangKolom.model.impl.MessagesForUser2;

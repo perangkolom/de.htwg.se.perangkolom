@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 
 public class CellTest {
@@ -17,11 +16,6 @@ public class CellTest {
 		cell1 = new Cell(10, 20, 30);
 	}
 	
-	//method for creating new Border object
-	public Border CellBorderMethod(boolean a, boolean b){
-		Border bord = new Border(a, b);
-		return bord;
-	}
 	
 	@Test
 	public void testCell() {
@@ -72,68 +66,21 @@ public class CellTest {
 		assertEquals("Bobo" , cell1.getCellOwner());
 	}
 
-	@Test
-	public void testGetCellBorder_top() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_top(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_top());
-	}
+//	@Test
+//	public void testGetCellBorder_top() {
+//		Border a = CellBorderMethod(true, true);
+//		cell1.setCellBorder_top(a);
+//		assertNotNull(a);
+//		assertEquals(a, cell1.getCellBorder_top());
+//	}
+//
+//	@Test
+//	public void testSetCellBorder_top() {
+//		Border a = CellBorderMethod(true, true);
+//		cell1.setCellBorder_top(a);
+//		assertNotNull(a);
+//		assertEquals(a, cell1.getCellBorder_top());
+//	}
 
-	@Test
-	public void testSetCellBorder_top() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_top(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_top());
-	}
-
-	@Test
-	public void testGetCellBorder_bottom() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_bottom(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_bottom());
-	}
-
-	@Test
-	public void testSetCellBorder_bottom() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_bottom(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_bottom());
-	}
-
-	@Test
-	public void testGetCellBorder_left() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_left(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_left());
-	}
-
-	@Test
-	public void testSetCellBorder_left() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_left(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_left());
-	}
-
-	@Test
-	public void testGetCellBorder_right() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_right(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_right());
-	}
-
-	@Test
-	public void testSetCellBorder_right() {
-		Border a = CellBorderMethod(true, true);
-		cell1.setCellBorder_right(a);
-		assertNotNull(a);
-		assertEquals(a, cell1.getCellBorder_right());
-	}
 
 }

@@ -8,7 +8,7 @@ public final class testerling {
 		// TODO Auto-generated method stub
 		
 		Cell[][] c = CellArray.getInstance();
-		System.out.println(c[0][0].getCellBorder_top());
+		System.out.println(c[0][0].BORDER_TOP);
 		
 	}
 

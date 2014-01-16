@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.htwg.se.PerangKolom.model.impl.Border;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.model.impl.CellArrayTest;
@@ -23,20 +22,14 @@ public class PerangKolomControllerTest {
 	public TreeSet<Cell> CellArraySet;
 	Cell[][] cellArray;
 	Cell cell;
-	Border b;
-	Border r;
-	Border t;
-	Border l; 
+
 	@Before
 	public void setUp() {
 		controller = new PerangKolomController();
 		CellArraySet = new TreeSet<Cell>();
 		cellArray = CellArray.getInstance();
 		cell = new Cell(1, 1, 50);
-		b = cell.getCellBorder_bottom();
-		r = cell.getCellBorder_right(); 
-		t = cell.getCellBorder_top();
-		l = cell.getCellBorder_left();
+
 	}
 	@Test
 	public void testClosePossibleBorderAlgo(){
@@ -44,171 +37,171 @@ public class PerangKolomControllerTest {
 		List<Cell> CellSetBufferWithThreeBorders = new ArrayList<Cell>();
 
 		/* case Border LEFT */
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(l.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_LEFT));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(l.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_LEFT));
 		
 		/* case Border BOTTOM */
-		b.setBorderFilled(false);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, false);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_BOTTOM));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_BOTTOM));
 		
 		/* case Border RIGHT */
-		b.setBorderFilled(true);
-		r.setBorderFilled(false);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, false);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(r.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_RIGHT));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(r.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_RIGHT));
 		
 		/* case Border TOP */
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(false);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(t.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_TOP));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferWithThreeBorders.add(cell);
 		controller.ClosePossibleBorderAlgo(CellSetBufferWithThreeBorders);
-		assertTrue(t.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_TOP));
+		
 	}
 	@Test
 	public void testNotPutForwardAlgo(){
 		List<Cell> CellSetBufferLessThanTwoBorders = new ArrayList<Cell>();
 		
-		b.setBorderFilled(false);
-		r.setBorderFilled(false);
-		t.setBorderFilled(false);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, false);
+		cell.setBorder(cell.BORDER_RIGHT, false);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_BOTTOM));
 		
 		/* case border BOTTOM */
-		b.setBorderFilled(false);
-		r.setBorderFilled(true);
-		t.setBorderFilled(false);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, false);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_BOTTOM));
 		
-		b.setBorderFilled(false);
-		r.setBorderFilled(false);
-		t.setBorderFilled(true);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, false);
+		cell.setBorder(cell.BORDER_RIGHT, false);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_BOTTOM));
 	
-		
-		b.setBorderFilled(false);
-		r.setBorderFilled(false);
-		t.setBorderFilled(false);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, false);
+		cell.setBorder(cell.BORDER_RIGHT, false);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_BOTTOM));
 		
 		/* case border RIGHT */
-		b.setBorderFilled(true);
-		r.setBorderFilled(false);
-		t.setBorderFilled(false);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, false);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_RIGHT));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(false);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(b.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_RIGHT));
 		
 		/* case border TOP */
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(false);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, false);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(t.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_TOP));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(t.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_TOP));
 
 		/* case border LEFT */
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(false);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, false);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(l.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_LEFT));
 		
-		b.setBorderFilled(true);
-		r.setBorderFilled(true);
-		t.setBorderFilled(true);
-		l.setBorderFilled(true);
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+		cell.setBorder(cell.BORDER_LEFT, true);
 		CellSetBufferLessThanTwoBorders.clear();
 		CellSetBufferLessThanTwoBorders.add(cell);
 		controller.NotPutForwardAlgo(CellSetBufferLessThanTwoBorders);
-		assertTrue(l.isBorderFilled());
+		assertTrue(cell.getBorder(cell.BORDER_LEFT));
 		
 		
 	
@@ -223,9 +216,10 @@ public class PerangKolomControllerTest {
 		
 		/* test first case --> 3 Border filled */
 //		cell = cellArray[0][0];
-		cell.setCellBorder_bottom(cell.getCellBorder_bottom());
-		cell.setCellBorder_right(cell.getCellBorder_right());
-		cell.setCellBorder_bottom(cell.getCellBorder_bottom());
+		cell.setBorder(cell.BORDER_BOTTOM, true);
+		cell.setBorder(cell.BORDER_RIGHT, true);
+		cell.setBorder(cell.BORDER_TOP, true);
+
 		//cell.setCellBorder_left(cell.getCellBorder_left());
 		
 //		b.setBorderFilled(true);
