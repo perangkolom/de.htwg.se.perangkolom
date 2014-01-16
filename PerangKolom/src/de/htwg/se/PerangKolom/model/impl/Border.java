@@ -9,7 +9,10 @@ public class Border extends AbstractBorder{
 		this.isBorderFilled = isBorderFilled;
 		this.isOuterBorder = isOuterBorder;
 	}
-
+	@Override
+	public String toString() {
+		return "" + this.isBorderFilled;
+	}
 
 	
 

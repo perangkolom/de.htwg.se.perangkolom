@@ -17,11 +17,11 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 
 	public Cell cell;
 	public TreeSet<Cell> CellArraySet = new TreeSet<Cell>();
-	public int counter = 0;
 	
 	public void setValue(int row, int column, int value){
 		cell.setCellValue(value);
 	}
+	
 	
 	@Override
 	public void createNewGrid(int x, int y) {
@@ -45,6 +45,64 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		border.setBorderFilled(true);
 	}
 
+	/* 'ClosePossibleBorder' Algorithm */
+	public void firstAlgo(List<Cell> CellSetBufferWithThreeBorders){
+		
+		/* Objects */
+		CurrentStrategy strategyOne = new Algo_ClosePossibleBorder();
+		ComputerPlayerLogic algorithmOne = new ComputerPlayerLogic();
+		algorithmOne.setStrategy(strategyOne);
+		
+		Cell cellBuf = CellSetBufferWithThreeBorders.get(0);
+		for(Cell c : CellSetBufferWithThreeBorders){
+			if(c.getCellValue() >= cellBuf.getCellValue()){
+				cellBuf = c;
+			}
+		}
+		algorithmOne.chooseStrategy(cellBuf);
+		// if computer chooses this algorithm and closes the 4th border, 
+		// it is still his turn
+		ComputerLogic();
+		
+		algorithmOne.setStrategy(strategyOne);
+	}
+	
+	/* 'NotPutForward' Algorithm */
+	public void secondAlgo(List<Cell> CellSetBufferLessThanTwoBorders){
+		
+		CurrentStrategy strategyTwo = new Algo_NotPutForward();
+		ComputerPlayerLogic algorithmTwo = new ComputerPlayerLogic();
+		algorithmTwo.setStrategy(strategyTwo);
+		
+		for(Cell c : CellSetBufferLessThanTwoBorders){
+			if(c.getNumberOfFilledBorders() == 1){
+				algorithmTwo.chooseStrategy(c);
+				return;
+			}
+			
+			
+			
+		}
+		algorithmTwo.chooseStrategy(CellSetBufferLessThanTwoBorders.get(0)); //prüfen ob cell 1 border oder 0 borders gefüllt hat, cell mit 1 border eine weitere füllen
+		
+	}
+	
+	/* 'SacrificeLowestValue' Algorithm */
+	public void ThirdAlgo(List<Cell> CellSetBufferWithTwoBorder){
+		
+		ComputerPlayerLogic algorithmThree = new ComputerPlayerLogic();
+		CurrentStrategy strategyThree = new Algo_SacrificeLowestValue();
+		algorithmThree.setStrategy(strategyThree);
+		
+		Cell cellBuf = CellSetBufferWithTwoBorder.get(0);
+		for(Cell c : CellSetBufferWithTwoBorder){
+			if(c.getCellValue() <= cellBuf.getCellValue()){
+				cellBuf = c;
+			}
+		}
+		algorithmThree.chooseStrategy(cellBuf);
+	}
+	
 	@Override
 	public void ComputerLogic() {
 
@@ -60,20 +118,6 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 			}
 		}
 		
-		
-		/* new Objects */
-		ComputerPlayerLogic algorithmOne = new ComputerPlayerLogic();
-		ComputerPlayerLogic algorithmTwo = new ComputerPlayerLogic();
-		ComputerPlayerLogic algorithmThree = new ComputerPlayerLogic();
-		
-		CurrentStrategy strategyOne = new Algo_ClosePossibleBorder();
-		CurrentStrategy strategyTwo = new Algo_NotPutForward();
-		CurrentStrategy strategyThree = new Algo_SacrificeLowestValue();
-		
-		algorithmOne.setStrategy(strategyOne);
-		algorithmTwo.setStrategy(strategyTwo);
-		algorithmThree.setStrategy(strategyThree);
-		
 		/**** rout all cells in different Lists ****/
 		for(Cell c : CellArraySet){
 				/*** 'NotPutForward' Algorithm ***/
@@ -86,39 +130,17 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 			} else if(c.getNumberOfFilledBorders() == 3){
 				CellSetBufferWithThreeBorders.add(c);
 			} 
-			
 		}
 		
 		/****** IF-Clause for the 'ClosePossibleBorder' Algorithm ******/
 		if(!CellSetBufferWithThreeBorders.isEmpty()){
-			Cell cellBuf = CellSetBufferWithThreeBorders.get(0);
-			for(Cell c : CellSetBufferWithThreeBorders){
-				if(c.getCellValue() >= cellBuf.getCellValue()){
-					cellBuf = c;
-				}
-			}
-			algorithmOne.chooseStrategy(cellBuf);
-			// if computer chooses this algorithm and closes the 4th border, it is still his turn
-			ComputerLogic();
-
+			firstAlgo(CellSetBufferWithThreeBorders);
 		/****** IF-Clause for the 'NotPutForward Algorithm ******/
 		} else if(!CellSetBufferLessThanTwoBorders.isEmpty()){
-			for(Cell c : CellSetBufferLessThanTwoBorders){
-				if(c.getNumberOfFilledBorders() == 1){
-					algorithmTwo.chooseStrategy(c);
-					return;
-				}
-			}
-			algorithmTwo.chooseStrategy(CellSetBufferLessThanTwoBorders.get(0)); //prüfen ob cell 1 border oder 0 borders gefüllt hat, cell mit 1 border eine weitere füllen
+			secondAlgo(CellSetBufferLessThanTwoBorders);
 		/****** IF-Clause for the 'SacrificeLowestValue' Algorithm ******/
 		} else if(!CellSetBufferWithTwoBorder.isEmpty()){
-			Cell cellBuf = CellSetBufferWithTwoBorder.get(0);
-			for(Cell c : CellSetBufferWithTwoBorder){
-				if(c.getCellValue() <= cellBuf.getCellValue()){
-					cellBuf = c;
-				}
-			}
-			algorithmThree.chooseStrategy(cellBuf);
+			ThirdAlgo(CellSetBufferWithTwoBorder);
 		}
 	}
 
