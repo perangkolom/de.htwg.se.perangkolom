@@ -17,12 +17,15 @@ public class CellTest {
 	}
 	
 	
+
 	@Test
 	public void testCell() {
-		assertEquals(1, new Cell(1, 2, 3).getPositionX());
-		assertEquals(2, new Cell(1, 2, 3).getPositionY());
-		assertEquals(3, new Cell(1, 2, 3).getCellValue());
+		assertEquals(1, new Cell(1, 2, 10).getPositionX());
+		assertEquals(5, new Cell(2, 5, 11).getPositionY());
+		assertEquals(12, new Cell(1, 1, 12).getCellValue());
 	}
+	
+	
  
 	@Test
 	public void testGetPositionX() {
@@ -51,7 +54,7 @@ public class CellTest {
 
 	@Test
 	public void testGetCellValue() {
-		assertEquals(5, new Cell (11,22,5).getCellValue());
+		assertEquals(5, new Cell(11,22,5).getCellValue());
 	}
 
 	@Test
@@ -66,6 +69,8 @@ public class CellTest {
 		assertEquals("Bobo" , cell1.getCellOwner());
 	}
 
+	
+	
 //	@Test
 //	public void testGetCellBorder_top() {
 //		Border a = CellBorderMethod(true, true);

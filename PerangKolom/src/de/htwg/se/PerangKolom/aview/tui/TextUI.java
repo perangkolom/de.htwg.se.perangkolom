@@ -1,13 +1,12 @@
 package de.htwg.se.PerangKolom.aview.tui;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
 import de.htwg.se.PerangKolom.controller.IPerangKolomChrisController;
-import de.htwg.se.PerangKolom.controller.impl.PerangKolomChrisController;
+import de.htwg.se.PerangKolom.model.impl.MessagesForUser2;
 import de.htwg.se.PerangKolom.util.observer.Event;
 import de.htwg.se.PerangKolom.util.observer.IObserver;
 
@@ -31,7 +30,7 @@ public class TextUI implements IObserver  {
 	public void printTUI() {
 		logger.info(newLine + controller.getGridString());
 		//logger.info(newLine + controller.getStatus());
-		logger.info(newLine + controller.getShortInstructions());
+		//logger.info(newLine + controller.getShortInstructions());
 	}
 	
 	
@@ -42,7 +41,12 @@ public class TextUI implements IObserver  {
 	
 		case "n":
 //			askForGameFieldParameters();
-			controller.createNewGrid();
+			controller.createNewGrid(3,3);
+			finishedAfterSwitchCase = true;
+			break;
+		case "b":
+//			askForGameFieldParameters();
+			controller.createNewGrid(7,7);
 			finishedAfterSwitchCase = true;
 			break;
 		case "q":
@@ -61,6 +65,7 @@ public class TextUI implements IObserver  {
 			if (line.matches("[0-9][0-9][0-9]")) {
 				int[] arg = readToArray(line);
 				controller.fillBorder(arg[0], arg[1], arg[2]);
+				logger.info(MessagesForUser2.shortInstruction);
 
 			//if the input was not of the correct format
 			} else {
@@ -68,6 +73,8 @@ public class TextUI implements IObserver  {
 			}
 				
 		}
+		if (finishedAfterSwitchCase)
+			logger.info(MessagesForUser2.shortInstruction);
 		return continueGame;
 	}
 	

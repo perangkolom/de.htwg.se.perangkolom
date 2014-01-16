@@ -1,18 +1,14 @@
 package de.htwg.se.PerangKolom.controller;
 
 import de.htwg.se.PerangKolom.model.impl.Cell;
-import de.htwg.se.PerangKolom.util.observer.Event;
 import de.htwg.se.PerangKolom.util.observer.IObservable;
-import de.htwg.se.PerangKolom.util.observer.IObserver;
 
 public interface IPerangKolomChrisController extends IObservable {
 	
 	
 //general
-	
-	void startNewGame();
-	
-	void createNewGrid();
+		
+	void createNewGrid(int rows, int cols);
 	
 	void exit();
 	

@@ -31,14 +31,18 @@ public class CellArray {
 				cellArrayInstance[i][j] = new Cell(i,j, 0);		
 			}
 		}
+		gameFieldAlreadyCreated = true;
 	}
 
+	public static boolean isGameFieldAlreadyCreated() {
+		return gameFieldAlreadyCreated;
+	}
+	
 	public static Cell[][] getInstance() {
 		if (gameFieldAlreadyCreated == true) { 
 			return cellArrayInstance;
 		} else {
 			new CellArray();
-			gameFieldAlreadyCreated = true;
 			return cellArrayInstance;
 		}	
 	}
