@@ -62,7 +62,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		algorithmOne.chooseStrategy(cellBuf);
 		// if computer chooses this algorithm and closes the 4th border, 
 		// it is still his turn
-		ComputerLogic();
+//		ComputerLogic();
 		
 	}
 	
