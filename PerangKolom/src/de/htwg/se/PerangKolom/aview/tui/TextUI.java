@@ -41,7 +41,7 @@ public class TextUI implements IObserver  {
 		switch (line) {
 	
 		case "n":
-			askForGameFieldParameters();
+			//askForGameFieldParameters();
 			controller.createNewGrid();
 			finishedAfterSwitchCase = true;
 			break;

@@ -1,5 +1,0 @@
-g2d zum GUI Zeichnen
-
-Struktur der TUI-Erzeugung:
-
-
