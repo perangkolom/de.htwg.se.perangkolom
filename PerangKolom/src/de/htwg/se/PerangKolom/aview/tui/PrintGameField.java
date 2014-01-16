@@ -24,17 +24,17 @@ public class PrintGameField {
 			gameFieldString = new char[CellArray.getNumberOfColums() * Cell.CELL_SIZE][CellArray.getNumberOfColums()  * Cell.CELL_SIZE];
 		}
 	
-		//loop to fill up the game-field with 
-		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
-			
-			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
-				
-				FillCharMatrixOfASingleCell.fillOneSingleCellWithChars(CellArray.cellArray[i][j]);
- 				
-				//copy the chars of one single Cell into the char-matrix that shall finally be printed
-				copyCelltoGameFieldMatrix(i,j, CellArray.cellArray[i][j]);
-			}
-		}
+//		//loop to fill up the game-field with 
+//		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
+//			
+//			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
+//				
+//				FillCharMatrixOfASingleCell.fillOneSingleCellWithChars(CellArray.cellArray[i][j]);
+// 				
+//				//copy the chars of one single Cell into the char-matrix that shall finally be printed
+//				copyCelltoGameFieldMatrix(i,j, CellArray.cellArray[i][j]);
+//			}
+//		}
 	}
 	
 	/**
@@ -73,17 +73,17 @@ public class PrintGameField {
 		}
 	}
 
-
-	public static void makeAllBordersFilled() {
-		
-		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
-			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
-				CellArray.cellArray[i][j].getCellBorder_top().setBorderFilled(true);
-				CellArray.cellArray[i][j].getCellBorder_bottom().setBorderFilled(true);
-				CellArray.cellArray[i][j].getCellBorder_left().setBorderFilled(true);
-				CellArray.cellArray[i][j].getCellBorder_right().setBorderFilled(true);
-			}
-		}
-	}
+//
+//	public static void makeAllBordersFilled() {
+//		
+//		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
+//			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
+//				CellArray.cellArray[i][j].getCellBorder_top().setBorderFilled(true);
+//				CellArray.cellArray[i][j].getCellBorder_bottom().setBorderFilled(true);
+//				CellArray.cellArray[i][j].getCellBorder_left().setBorderFilled(true);
+//				CellArray.cellArray[i][j].getCellBorder_right().setBorderFilled(true);
+//			}
+//		}
+//	}
 
 }
