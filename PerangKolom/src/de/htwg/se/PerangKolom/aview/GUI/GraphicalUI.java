@@ -1,20 +1,46 @@
 package de.htwg.se.PerangKolom.aview.GUI;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout;import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
+
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.OverlayLayout;
 import javax.swing.border.EmptyBorder;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
 
 public class GraphicalUI extends JFrame {
 
 	private JPanel contentPane;
-	
+	private JPanel PanelMenu;
+	private JPanel PanelBackground;
+	private JLabel label;
 	private ImageIcon backgroundplay;
-    private ImageIcon backgroundplaySmall;
+    private BufferedImage backgroundplaySmall;
+    
+//    private final int = 
+//    private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -36,57 +62,120 @@ public class GraphicalUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GraphicalUI() {
+		setResizable(false);
+		setBackground(new Color(0, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 520, 600);
+		setBounds(100, 100, 507, 628);
+		
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setSize(500, 600);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel PanelMenu = new JPanel();
+		PanelMenu = new JPanel();
 		PanelMenu.setBounds(0, 0, 500, 100);
 		contentPane.add(PanelMenu);
+		PanelMenu.setLayout(null);
 		
-		JPanel PanelBackground = new JPanel();
-		PanelBackground.setBounds(0, 0, 500, 500);
+		PanelBackground = new JPanel();
+		PanelBackground.setForeground(Color.BLACK);
+		PanelBackground.setBounds(0, 100, 500, 500);
 		contentPane.add(PanelBackground);
 		
-        backgroundplay = new ImageIcon(
-                "/de.htwg.se.PerangKolom/src/utilities/PerangKolomGameField.jpg");
+		PanelBackground.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			    int x=e.getX();
+			    int y=e.getY();
+			    System.out.println(x+","+y);//these co-ords are relative to the component
+			}
+		});
+		
+		/*******************************/
+
+		backgroundplay = new ImageIcon("src/utilities/PerangKolomGameField.jpg");
+		PanelBackground.setOpaque(false);
+		
+//		btnNewButton = new JButton("");
+//		
+//
+//		btnNewButton.setContentAreaFilled(false);
+//		btnNewButton.setBorderPainted(false);
+//		btnNewButton.setBackground(Color.WHITE);
+////		btnNewButton.setBorderPainted(false);
+//		btnNewButton.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("Hallo, ich wurde gedrückt");
+//				PanelBackground.setOpaque(true);
+//				btnNewButton.setContentAreaFilled(true);
+//				btnNewButton.setEnabled(false);
+//				
+//			}
+//		});
+		
+		label = new JLabel();
+		label.setBounds(297, 16, 0, 0);
+		label.setIcon(backgroundplay);
+//		label.add(btnNewButton).setBounds(46, 35, 45, 10);;
+
+		
+		/******* BUILD Cells ********/
+		int counterX = 33;
+		int counterY = 35;
+		
+		for(int j = 0; j < 7; j++){
+			for(int i = 0; i < 7; i++){
+				ButtonObject btnObject = new ButtonObject(counterX, counterY, "500");
+				JPanel btnPanel = btnObject.getPanel();
+				label.add(btnPanel);
+				counterX += 60;
+			}
+			counterX = 33;
+			counterY += 60; 
+		}
+
+
+			
+//		
+//		ButtonObject btnObject = new ButtonObject(33, 35, "500");
+//		JPanel btnPanel = btnObject.getPanel();
+//		label.add(btnPanel);
+//		ButtonObject btnObject2 = new ButtonObject(93, 35, "400");
+//		JPanel btnPanel2 = btnObject2.getPanel();
+//		label.add(btnPanel2);
+		
+        /***********/
         
-        //background.setIcon(backgroundplay);
+		PanelBackground.add(label);
+		setVisible(true); 
+		this.validate();
 	}
-
-	
-
-//    private void printBackGorund() {
-//            JLabel background;
-//            // background //
-//
-//            // Background //
-//            final int backgroundxpos = 0;
-//            final int backgroundypos = 0;
-//            final int backgroundxsize = 500;
-//            final int backgroundysize = 500;
-//            final int gameSize = controller.getGameFieldSize();
-//
-//            background = new JLabel();
-//            background.setBounds(backgroundxpos, backgroundypos, backgroundxsize,
-//                            backgroundysize);
-////            if (gameSize == NINE) {
-////                    background.setIcon(backgroundplay);
-////            } else if (gameSize == FIVE) {
-////                    background.setIcon(backgroundplaySmall);
-////            }
-//
-//           
-//
-//            if (controller.getNext().equals("white")) {
-//                    whiteStatsBackground.setIcon(whiteStatsbackA);
-//                    blackStatsBackground.setIcon(blackStatsback);
-//            } else {
-//                    blackStatsBackground.setIcon(blackStatsbackA);
-//                    whiteStatsBackground.setIcon(whiteStatsback);
-//            }
-//    }
 }
