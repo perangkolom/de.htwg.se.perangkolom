@@ -5,18 +5,20 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-import de.htwg.se.PerangKolom.controller.IPerangKolomChrisController;
+import de.htwg.se.PerangKolom.controller.IPerangKolomController;
+import de.htwg.se.PerangKolom.model.impl.CellArray;
 import de.htwg.se.PerangKolom.model.impl.MessagesForUser2;
 import de.htwg.se.PerangKolom.util.observer.Event;
 import de.htwg.se.PerangKolom.util.observer.IObserver;
 
 public class TextUI implements IObserver  {
 
-	private IPerangKolomChrisController controller;
-	private Logger logger = Logger.getLogger("de.htwg.se.perangkolom.aview.tui.TextUI");
+	private IPerangKolomController controller;
+	//private Logger logger = Logger.getLogger("de.htwg.se.perangkolom.aview.tui.TextUI");
+	private Logger logger = Logger.getLogger(this.getClass().toString());
 	private String newLine = System.getProperty("line.separator");
 	
-	public TextUI(IPerangKolomChrisController controller) {
+	public TextUI(IPerangKolomController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 	}
@@ -39,6 +41,21 @@ public class TextUI implements IObserver  {
 		boolean finishedAfterSwitchCase = false;
 		switch (line) {
 	
+		//test-case that prints only one cell
+		case "t":
+//			askForGameFieldParameters();
+			controller.createNewGrid(1,1);
+			finishedAfterSwitchCase = true;
+			break;
+		//test-scenario that prints everything as if borders were all true
+		case "r":
+//			askForGameFieldParameters();
+			controller.createNewGrid(2,2);
+			CellArray.setAllBordersTrue();
+			controller.getGridString();
+			finishedAfterSwitchCase = true;
+			break;
+
 		case "n":
 //			askForGameFieldParameters();
 			controller.createNewGrid(3,3);
@@ -51,6 +68,7 @@ public class TextUI implements IObserver  {
 			break;
 		case "q":
 			continueGame = false;
+			logger.info("You decided to quit the game. Nethertheless, we hope you enjoyed playing this AWESOME game!");
 			finishedAfterSwitchCase = true;
 			break;
 		case "h":
@@ -73,7 +91,8 @@ public class TextUI implements IObserver  {
 			}
 				
 		}
-		if (finishedAfterSwitchCase)
+		
+		if (finishedAfterSwitchCase && continueGame)
 			logger.info(MessagesForUser2.shortInstruction);
 		return continueGame;
 	}

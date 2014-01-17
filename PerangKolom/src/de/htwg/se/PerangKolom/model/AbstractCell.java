@@ -1,15 +1,23 @@
 package de.htwg.se.PerangKolom.model;
 
+import java.lang.Math;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
+import de.htwg.se.PerangKolom.model.impl.GameData;
 
 public abstract class AbstractCell implements ICell{
 
-	public final int BORDER_TOP 	= 1;
-	public final int BORDER_RIGHT 	= 2;
-	public final int BORDER_BOTTOM 	= 3;
-	public final int BORDER_LEFT 	= 4;
+	public static final int BORDER_TOP 	= 1;
+	public static final int BORDER_RIGHT 	= 2;
+	public static final int BORDER_BOTTOM 	= 3;
+	public static final int BORDER_LEFT 	= 4;
+	
+	//these values multiplied with 25 determine the maximum/minimum value for a cell
+	public static final int RANDOM_MIN 	= 1;
+	public static final int RANDOM_MAX	= 4;
 	
 	protected boolean topBorder = false;
 	protected boolean bottomBorder = false;
@@ -153,18 +161,69 @@ public abstract class AbstractCell implements ICell{
 	}
 
 	public void fillCharArray() {
-	//print chars for the...
-		//...top-Border:
-		printHorizontalBorders(true, getBorder(BORDER_TOP));
-		//...bottom-Border:
-		printHorizontalBorders(false, getBorder(BORDER_BOTTOM));
-		//...left-Border:
-		printVerticalBorders(true, getBorder(BORDER_LEFT));
-		//...right-Border:
-		printVerticalBorders(true, getBorder(BORDER_RIGHT));
+	
+		if (this.cellFilled) {
+			fillCellCompletelyWithOwnersString();
+		} else {
+			//print chars for the...
+			//...top-Border:
+			printHorizontalBorders(true, getBorder(BORDER_TOP));
+			//...bottom-Border:
+			printHorizontalBorders(false, getBorder(BORDER_BOTTOM));
+			//...left-Border:
+			printVerticalBorders(true, getBorder(BORDER_LEFT));
+			//...right-Border:
+			printVerticalBorders(false, getBorder(BORDER_RIGHT));
+		}
+		
+		insertValueIntoCharMatrix();
 	}
 	
-
+	
+	private void insertValueIntoCharMatrix() {
+		Integer value = (Integer) getCellValue();
+		String valueString = value.toString();
+		int lengthOfNumber = valueString.length();
+	
+		int halfOfCellSize = (Cell.CELL_SIZE / 2);	
+		int middle_Vertical = halfOfCellSize;
+		int middle_Horizontal = halfOfCellSize ;
+		
+		System.out.println("halfOfCellSize: " + halfOfCellSize);
+		//get the correct index to use for adding the value to cellOutputCharMatrix
+		System.out.println("lengthOfNumber: " + lengthOfNumber);
+		if (lengthOfNumber == 1) 
+			middle_Horizontal = halfOfCellSize;
+		else if (lengthOfNumber == 2) 
+			middle_Horizontal = halfOfCellSize ;
+			else if (lengthOfNumber == 3) 
+				middle_Horizontal = halfOfCellSize - 1;
+		
+		
+		/*		switch (lengthOfNumber) {
+			case 1:
+				middle_Horizontal = halfOfCellSize;
+				break;
+			case 2:
+				middle_Horizontal = halfOfCellSize - 1;
+			case 3:
+				middle_Horizontal = halfOfCellSize - 2;
+				break;
+		}
+*/
+		
+		char[] tmpCharArray = new char[lengthOfNumber];
+		//divide valueString (which represents the integer cellValue as a String) into single chars
+		for (int i = 0; i < lengthOfNumber; i++) {
+			tmpCharArray[i] = valueString.charAt(i);
+		}
+		
+		//put the value into cellOutputStringArray
+		for (int i = 0; i < lengthOfNumber; i++) {
+			cellOutputStringArray[middle_Vertical][middle_Horizontal + i] = tmpCharArray[i];
+		}
+	}
+	
 	/**
 	 * @param isTop is true if it's topBorder, false if it's bottomBorder  
 	 */
@@ -251,5 +310,30 @@ public abstract class AbstractCell implements ICell{
 		}
 		return sb.toString();
 	}
+
+	@Override
+	public int makeRandomNumber() {
 		
+		double random = Math.random();
+		double tmp = (random * RANDOM_MAX);
+		if (tmp < RANDOM_MIN) 
+			tmp = RANDOM_MIN;
+		int result = (int) Math.ceil(tmp);
+		
+		result = result * 25;
+		return result;		
+	}
+
+
+	public void fillCellCompletelyWithOwnersString() {
+		
+		for (int i = 0; i < CELL_SIZE; i++) {
+			
+			for (int j = 0; j < CELL_SIZE; j++) {
+//				cellOutputStringArray[i][j] = GameData.
+			}
+		}
+		
+	}
 }
+

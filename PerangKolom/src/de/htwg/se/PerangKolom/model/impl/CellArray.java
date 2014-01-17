@@ -1,17 +1,21 @@
 package de.htwg.se.PerangKolom.model.impl;
 
+import org.apache.log4j.Logger;
+
+import de.htwg.se.PerangKolom.model.AbstractCell;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 
-public class CellArray {
+public final class CellArray {
 
 	/**
 	 * this array is necessary to be able to save the cells in the correct ordering
 	 * there's no graphical information directly in this class
 	 */
 	
+	private static CellArray instance;
 	private static final int DEFAULT_NUMBEROFROWS = 3;
 	private static final int DEFAULT_NUMBEROFCOLUMS = 3;
-	private static Cell[][] cellArrayInstance;
+	private static Cell[][] cellArray = null;
 	private static int numberOfRows = DEFAULT_NUMBEROFROWS;
 	private static int numberOfColums = DEFAULT_NUMBEROFCOLUMS;
 	private static boolean gameFieldAlreadyCreated = false;
@@ -19,15 +23,18 @@ public class CellArray {
 	 * this is the final output-char-array for the TUI
 	 */
 	private static char[][] gameFieldString;
+	private static Logger logger = Logger.getLogger("de.htwg.se.PerangKolom.model.impl.CellArray");
+	
 	
 	private CellArray() {
 		
-		cellArrayInstance= new Cell[numberOfRows][numberOfColums];
+		cellArray= new Cell[getNumberOfRows()][getNumberOfColums()];
+
+		for (int i = 0; i < getNumberOfRows(); i++) {
 		
-		for (int i = 0; i < numberOfRows; i++) {
-		
-			for (int j = 0; j < numberOfColums; j++) {
-				cellArrayInstance[i][j] = new Cell(i,j, 0);		
+			for (int j = 0; j < getNumberOfColums(); j++) {
+
+				cellArray[i][j] = new Cell(i,j);		
 			}
 		}
 		gameFieldAlreadyCreated = true;
@@ -37,28 +44,28 @@ public class CellArray {
 		return gameFieldAlreadyCreated;
 	}
 	
-	public static Cell[][] getInstance() {
-		if (gameFieldAlreadyCreated == true) { 
-			return cellArrayInstance;
-		} else {
+	public static CellArray getInstance() {
+		if (instance == null) 
 			new CellArray();
-			return cellArrayInstance;
-		}	
+		return instance;
 	}
 
 	public static void createCellArray(int x, int y) {
+		gameFieldAlreadyCreated = false;
+		cellArray = null;
 		setNumberOfRows(x);
 		setNumberOfColums(y);
 		getInstance();
+		
 	}
 
 	private static void setNumberOfRows(int x) {
-		if (cellArrayInstance == null) 
+		if (cellArray == null) 
 			numberOfRows = x;
 	}
 
 	private static void setNumberOfColums(int x) {
-		if (cellArrayInstance == null) 
+		if (cellArray == null) 
 			numberOfColums = x;
 	}
 
@@ -71,9 +78,12 @@ public class CellArray {
 	}
 	
 	public static Cell getSpecificCell(int row, int col) {
-		return getInstance()[row][col];
+		return cellArray[row][col];
 	}
 
+	public Cell[][] getCellArray(){
+		return cellArray;
+	}
 	
 	/**
 	 * fills the char-matrix gameFieldString cell by cell
@@ -88,13 +98,15 @@ public class CellArray {
 		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
 			
 			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
-				Cell tmpCell = CellArray.cellArrayInstance[i][j]; 
+				Cell tmpCell = CellArray.cellArray[i][j]; 
 				tmpCell.fillCharArray();
 					
 				//copy the chars of one single Cell into the char-matrix that shall finally be printed
 				copyCelltoGameFieldMatrix(i,j, tmpCell);
 			}
 		}
+		
+		
 	}
 	
 	/**
@@ -103,15 +115,27 @@ public class CellArray {
 	 * @param gameFieldColumn is the column that the selected cell to be filled in lies in
 	 */
 	private static void copyCelltoGameFieldMatrix(int gameFieldRow, int gameFieldColumn, Cell cell) {
-		int indX = (gameFieldRow * Cell.CELL_SIZE);
-		int indY = (gameFieldColumn * Cell.CELL_SIZE);
+
+		//offsetX shall even out the effect that filled Borders that are not at the edge of the gameField overlap each other
+		//int offsetX = - (gameFieldRow - 1);
+		int cellStartsAt_X = (gameFieldRow * Cell.CELL_SIZE) ;
+		int cellStartsAt_Y = (gameFieldColumn * Cell.CELL_SIZE);
 		
+		if (gameFieldRow > 0 ) 
+			cellStartsAt_X -= 1;
+		if (gameFieldColumn > 0)
+			cellStartsAt_Y -= 1;
+		
+		//for each row
 		for (int i = 0; i < Cell.CELL_SIZE; i++) {
-			
+			//for each column
 			for (int j = 0; j < Cell.CELL_SIZE; j++) {
-				gameFieldString[indX + i][indY + j] = cell.cellOutputStringArray[i][j];
+				int coordX = cellStartsAt_X + i;
+				int coordY = cellStartsAt_Y + j;
+				gameFieldString[coordX][coordY] = cell.cellOutputStringArray[i][j];
 			}
 		}
+		
 	}
 	
 	
@@ -121,19 +145,33 @@ public class CellArray {
 	public static void printGameFieldString() {
 		int stepsForRows = CellArray.getNumberOfRows() * Cell.CELL_SIZE;
 		int stepsForCols = CellArray.getNumberOfColums() * Cell.CELL_SIZE;
-		System.out.println("stepsForRows: " + stepsForRows + "\n");
-		System.out.println("stepsForCols: " + stepsForCols + "\n");
+	
+		logger.debug("stepsForRows: " + stepsForRows + "\n");
+		logger.debug("stepsForCols: " + stepsForCols + "\n");
 		
+		StringBuilder sbOut = new StringBuilder();
 		for (int i = 0; i < stepsForRows; i++ ) {		
 		
 			for (int j = 0; j < stepsForCols; j++ ) {
-				System.out.print(gameFieldString[i][j]);		
+				sbOut.append(gameFieldString[i][j]);		
 			}
-			System.out.print("\n");
+			sbOut.append("\n");
+		}	
+		logger.info("\n" + sbOut.toString());
+	}
+	
+	
+	public static void setAllBordersTrue() {
+		
+		for (int i = 0; i < CellArray.getNumberOfRows(); i++) {
+			
+			for (int j = 0; j < CellArray.getNumberOfColums(); j++) {
+				CellArray.cellArray[i][j].setBorder(Cell.BORDER_BOTTOM, true);
+				CellArray.cellArray[i][j].setBorder(Cell.BORDER_LEFT, true);
+				CellArray.cellArray[i][j].setBorder(Cell.BORDER_RIGHT, true);
+				CellArray.cellArray[i][j].setBorder(Cell.BORDER_TOP, true);
+			}
 		}
 	}
-
-
-
-
+	
 }

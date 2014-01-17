@@ -3,16 +3,22 @@ package de.htwg.se.PerangKolom.controller.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 import de.htwg.se.PerangKolom.controller.CurrentStrategy;
 import de.htwg.se.PerangKolom.controller.IPerangKolomController;
 import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.model.impl.CellArray;
-import de.htwg.se.PerangKolom.util.observer.Observable;
+import de.htwg.se.PerangKolom.model.impl.MessagesForUser2;
+import de.htwg.se.PerangKolom.util.observer.Event;
+import de.htwg.se.PerangKolom.util.observer.IObserver;
 
-public class PerangKolomController extends Observable implements IPerangKolomController{
+public class PerangKolomController implements IPerangKolomController {
 
-	public Cell[][] cellArray = CellArray.getInstance();
+	private String notYet = "(no code written until now. Don't forget to do so!)";
+	private Logger logger = Logger.getLogger("de.htwg.se.PerangKolom.controller.impl.IPerangKolomController");	
+	public CellArray cellGrid = CellArray.getInstance();
+	public Cell[][] cellArray = cellGrid.getCellArray();
 	public TreeSet<Cell> CellArraySet = new TreeSet<Cell>();
 	
 	public void setCellValue(int row, int column, int value){
@@ -21,9 +27,55 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 	
 	
 	@Override
-	public void createNewGrid(int x, int y) {
-		CellArray.createCellArray(x, y);
+	public void createNewGrid(int rows, int cols) {	
+		//if a completely new game is started
+		if ( ! CellArray.isGameFieldAlreadyCreated()) {
+			logger.info("A new game is gets started with a game-field-size of ("+ rows +","+ cols +").\n");
+			CellArray.createCellArray(rows, cols);
+		}
+		//if game has to be restarted (so if a gameField had already existed)
+		else {
+			
+		}
+		
+		logger.info("Now the controller should create a new Grid!");
+		CellArray.createCellArray(rows, cols);
+		notifyObservers();
 	}
+
+	@Override
+	public String getGridString() {
+			CellArray.fillGameMatrix();
+			CellArray.printGameFieldString();
+		return null;
+	}
+
+	@Override
+	public void fillBorder(int x, int y, int z) {
+		logger.info("Now the border " + z + " of  cell("+x+","+y+") shall be filled\n");
+		
+		
+	}
+
+
+
+	@Override
+	public String getStartGameString() {
+		return MessagesForUser2.startOfTheGame;
+	}
+
+
+	@Override
+	public String showHelp() {
+		return MessagesForUser2.help_inputInstructionForConsole;
+	}
+
+
+	@Override
+	public String getShortInstructions() {
+		return MessagesForUser2.shortInstruction;
+	}
+	
 
 	@Override
 	public void reset() {
@@ -31,11 +83,6 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		
 	}
 
-	@Override
-	public void exit() {
-		// TODO Auto-generated method stub
-		
-	}
 
 //	@Override
 //	public void fillBorder(Border border) {
@@ -109,7 +156,7 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 		/* fills a Set with all cells */
 		for(int i = 0; i < CellArray.getNumberOfRows(); i++){
 			for(int j = 0; j < CellArray.getNumberOfColums(); j++){
-				Cell[][] tmp = CellArray.getInstance();
+				Cell[][] tmp = cellArray;
 				CellArraySet.add(tmp[i][j]);
 			}
 		}
@@ -139,6 +186,76 @@ public class PerangKolomController extends Observable implements IPerangKolomCon
 			SacrificeLowestValueAlgo(CellSetBufferWithTwoBorder);
 		}
 	}
+
+
+	@Override
+	public void addObserver(IObserver s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void removeObserver(IObserver s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void removeAllObservers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void notifyObservers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void notifyObservers(Event e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public int getNumberOfFilledBorderOfCell(Cell cell) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int getCellValue(Cell cell) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void fillCell(Cell cell) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void changePlayer() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void exit() {
+		// TODO Auto-generated method stub
+	}
+
+
 
 
 	

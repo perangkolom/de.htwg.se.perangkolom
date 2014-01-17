@@ -11,6 +11,10 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +34,8 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+import de.htwg.se.PerangKolom.controller.impl.PerangKolomController;
+
 public class GraphicalUI extends JFrame {
 
 	private JPanel contentPane;
@@ -38,6 +44,8 @@ public class GraphicalUI extends JFrame {
 	private JLabel label;
 	private ImageIcon backgroundplay;
     private BufferedImage backgroundplaySmall;
+//    HashMap<List<V> , ButtonObject> hashMapButton;
+    
     
 //    private final int = 
 //    private JButton btnNewButton;
@@ -66,6 +74,9 @@ public class GraphicalUI extends JFrame {
 		setBackground(new Color(0, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 507, 628);
+		
+		/* Hash-Map */
+//		hashMapButton = new HashMap<Integer[], ButtonObject>();
 		
 
 		contentPane = new JPanel();
@@ -156,6 +167,7 @@ public class GraphicalUI extends JFrame {
 				ButtonObject btnObject = new ButtonObject(counterX, counterY, "500");
 				JPanel btnPanel = btnObject.getPanel();
 				label.add(btnPanel);
+//				hashMapButton.put(, btnObject);
 				counterX += 60;
 			}
 			counterX = 33;

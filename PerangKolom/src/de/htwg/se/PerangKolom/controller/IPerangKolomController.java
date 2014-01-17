@@ -1,11 +1,14 @@
 package de.htwg.se.PerangKolom.controller;
 
 
+import de.htwg.se.PerangKolom.model.impl.Cell;
 import de.htwg.se.PerangKolom.util.observer.IObservable;
 
 
 public interface IPerangKolomController extends IObservable{
 
+
+	
 	/*
 	 * creates new gamefield as grid, starts the game
 	 */
@@ -27,6 +30,24 @@ public interface IPerangKolomController extends IObservable{
 	 * - calls function 'fillBorder()'
 	 */
 	public void ComputerLogic();
+
+	String getShortInstructions();
+	
+	String showHelp();
+
+	String getStartGameString();
+
+	int getNumberOfFilledBorderOfCell(Cell cell);
+
+	int getCellValue(Cell cell);
+
+	void fillBorder(int x, int y, int z);
+
+	void fillCell(Cell cell);
+
+	String getGridString();
+
+	void changePlayer();
 	
 	/*
 	 * 

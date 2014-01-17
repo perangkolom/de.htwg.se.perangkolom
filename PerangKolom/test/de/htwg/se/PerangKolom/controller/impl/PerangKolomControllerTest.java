@@ -14,17 +14,18 @@ import de.htwg.se.PerangKolom.model.impl.CellArray;
 
 public class PerangKolomControllerTest {
 
+	public CellArray cellGrid = CellArray.getInstance();
+	public Cell[][] cellArray = cellGrid.getCellArray();
 	PerangKolomController controller;
 	public TreeSet<Cell> CellArraySet;
-	Cell[][] cellArray;
 	Cell cell;
 
 	@Before
 	public void setUp() {
 		controller = new PerangKolomController();
 		CellArraySet = new TreeSet<Cell>();
-		cellArray = CellArray.getInstance();
-		cell = new Cell(1, 1, 50);
+		cellArray = cellGrid.getCellArray();
+		cell = new Cell(1, 1);
 
 	}
 	@Test

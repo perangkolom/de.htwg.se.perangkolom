@@ -26,5 +26,9 @@ public interface ICell {
 	
 	public String toString();
 	
+	public int makeRandomNumber();
+	
+	public void fillCellCompletelyWithOwnersString();
+	
 	
 }

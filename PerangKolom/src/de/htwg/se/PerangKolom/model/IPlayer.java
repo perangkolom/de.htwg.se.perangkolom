@@ -2,9 +2,10 @@ package de.htwg.se.PerangKolom.model;
 
 public interface IPlayer {
 	
-	public String getName();
-
+	public boolean isPlayerHuman();
+	
 	public int getNumberOfPlayers();
 
 	public int getNumberOfPoints();
+
 }
